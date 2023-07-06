@@ -1,0 +1,87 @@
+/* eslint-disable prettier/prettier */
+export const users = [
+    {
+        "_id": "64a4838d840ddc9af5ab0bea",
+        "isActive": false,
+        "balance": "$1,377.74",
+        "picture": "http://placehold.it/32x32",
+        "age": 35,
+        "eyeColor": "brown",
+        "name": "Elba Woodard",
+        "gender": "female",
+        "company": "ONTALITY",
+        "email": "elbawoodard@ontality.com",
+        "phone": "+1 (873) 589-3049",
+        "address": "382 Heath Place, Turpin, Wisconsin, 1314"
+    },
+    {
+        "_id": "64a4838d860650c78f2216e1",
+        "isActive": true,
+        "balance": "$1,022.78",
+        "picture": "http://placehold.it/32x32",
+        "age": 21,
+        "eyeColor": "brown",
+        "name": "Reyna Rosario",
+        "gender": "female",
+        "company": "TROPOLIS",
+        "email": "reynarosario@tropolis.com",
+        "phone": "+1 (830) 519-2245",
+        "address": "676 Sedgwick Place, Orick, Indiana, 7397"
+    },
+    {
+        "_id": "64a4838d2fa83f79988f5e40",
+        "isActive": false,
+        "balance": "$3,217.19",
+        "picture": "http://placehold.it/32x32",
+        "age": 39,
+        "eyeColor": "blue",
+        "name": "Willis Calhoun",
+        "gender": "male",
+        "company": "COMTRAK",
+        "email": "williscalhoun@comtrak.com",
+        "phone": "+1 (926) 575-2127",
+        "address": "754 Minna Street, Sperryville, Delaware, 4451"
+    },
+    {
+        "_id": "64a4838da6dd200a59d95335",
+        "isActive": true,
+        "balance": "$1,456.05",
+        "picture": "http://placehold.it/32x32",
+        "age": 28,
+        "eyeColor": "brown",
+        "name": "Mathis Riley",
+        "gender": "male",
+        "company": "CALLFLEX",
+        "email": "mathisriley@callflex.com",
+        "phone": "+1 (810) 419-3393",
+        "address": "289 Lincoln Avenue, Wilsonia, Louisiana, 5347"
+    },
+    {
+        "_id": "64a4838daecb71fc49421e57",
+        "isActive": true,
+        "balance": "$2,622.50",
+        "picture": "http://placehold.it/32x32",
+        "age": 31,
+        "eyeColor": "brown",
+        "name": "Anita Park",
+        "gender": "female",
+        "company": "ANIVET",
+        "email": "anitapark@anivet.com",
+        "phone": "+1 (839) 402-3575",
+        "address": "193 Onderdonk Avenue, Guthrie, Alaska, 4446"
+    },
+    {
+        "_id": "64a4838d3d5eaeda33777d0c",
+        "isActive": false,
+        "balance": "$1,454.68",
+        "picture": "http://placehold.it/32x32",
+        "age": 38,
+        "eyeColor": "brown",
+        "name": "Maynard Savage",
+        "gender": "male",
+        "company": "PHOLIO",
+        "email": "maynardsavage@pholio.com",
+        "phone": "+1 (887) 537-2810",
+        "address": "183 Manhattan Court, Felt, Colorado, 9746"
+    }
+]
