@@ -9,7 +9,7 @@ services:
       - POSTGRES_HOST=localhost
       - POSTGRES_USER=misha
       - POSTGRES_PASSWORD=admin
-      - POSTGRES_DATABASE=prDb
+      - POSTGRES_DB=prDb
     command: postgres
     restart: always
 
