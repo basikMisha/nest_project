@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDTO } from '../user/dto';
@@ -20,7 +21,7 @@ export class AuthController {
   @ApiTags('API')
   @ApiResponse({ status: 200, type: AuthUserResponse })
   @Post('login')
-  login(@Body() dto: LoginUserDTO): Promise<AuthUserResponse> {
+  login(@Body() dto: LoginUserDTO): Promise<any> {
     return this.authService.loginUser(dto);
   }
 

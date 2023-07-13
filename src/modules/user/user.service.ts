@@ -1,9 +1,11 @@
+/* eslint-disable prettier/prettier */
 // import { BadRequestException, Injectable } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from './models/user.model';
 import * as bcrypt from 'bcrypt';
 import { CreateUserDTO, UpdateUserDTO } from './dto';
+import { WatchList } from '../watchlist/models/watchlist.model';
 // import { AppErrors } from 'src/common/constants/errors';
 
 @Injectable()
@@ -24,6 +26,10 @@ export class UserService {
     return this.userRepository.findOne({
       where: { email: email },
       attributes: { exclude: ['password'] },
+      include: {
+        model: WatchList,
+        required: false,
+      }
     });
   }
 
@@ -46,7 +52,7 @@ export class UserService {
     return dto;
   }
 
-  async deleteUser(email: string) {
+  async deleteUser(email: string): Promise<boolean> {
     await this.userRepository.destroy({ where: { email: email } });
     return true;
   }
