@@ -21,7 +21,7 @@ export class AuthService {
     return this.userService.createUser(dto);
   }
 
-  async loginUser(dto: LoginUserDTO): Promise<any> {
+  async loginUser(dto: LoginUserDTO): Promise<AuthUserResponse> {
     const existUser = await this.userService.findUserByEmail(dto.email);
     if (!existUser) throw new BadRequestException(AppErrors.USER_NOT_EXIST);
     const validatePassword = await bcrypt.compare(
