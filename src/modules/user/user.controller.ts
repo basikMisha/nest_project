@@ -1,4 +1,4 @@
-// eslint-disable-next-line prettier/prettier
+/* eslint-disable prettier/prettier */  
 import { Controller, Body, Patch, UseGuards, Req, Delete } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UpdateUserDTO } from './dto';
@@ -30,7 +30,7 @@ export class UserController {
   @ApiTags('API')
   @UseGuards(JwtAuthGuard)
   @Delete()
-  deleteUser(@Req() request) {
+  deleteUser(@Req() request): Promise<boolean> {
     const user = request.user;
     return this.userService.deleteUser(user.email);
   }
