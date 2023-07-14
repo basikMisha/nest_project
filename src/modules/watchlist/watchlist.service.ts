@@ -11,13 +11,17 @@ export class WatchlistService {
     ) {}
 
     async createAsset(user, dto): Promise<CreateAssetResponce> {
-        const watchlist = {
-            user: user.id,
-            name: dto.name,
-            assetId: dto.assetId
+        try {
+            const watchlist = {
+                user: user.id,
+                name: dto.name,
+                assetId: dto.assetId
+            }
+            await this.watchlistRepository.create(watchlist);
+            return watchlist;
+        } catch (error) {
+            throw new Error(error);
         }
-        await this.watchlistRepository.create(watchlist);
-        return watchlist;
     }
 
     async deleteAsset(userId: number, assetId: string): Promise<boolean> {

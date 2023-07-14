@@ -35,7 +35,11 @@ export class WatchlistController {
   @UseGuards(JwtAuthGuard)
   @Delete()
   deleteAsset(@Query('id') assetId: string, @Req() request): Promise<boolean> {
-    const { id } = request.user;
-    return this.watchlistService.deleteAsset(id, assetId);
+    try {
+      const { id } = request.user;
+      return this.watchlistService.deleteAsset(id, assetId);
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 }
