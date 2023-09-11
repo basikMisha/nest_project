@@ -7,12 +7,14 @@ import {
   UseGuards,
   Delete,
   Query,
+  Get
 } from '@nestjs/common';
 import { WatchlistService } from './watchlist.service';
 import { WatchListDTO } from './dto';
 import { JwtAuthGuard } from 'src/guards/jwt-guard';
-import { CreateAssetResponce } from './response';
+import { CreateAssetResponce, GetUserAssetsResponce } from './response';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { WatchList } from './models/watchlist.model';
 
 @Controller('watchlist')
 export class WatchlistController {
@@ -31,6 +33,15 @@ export class WatchlistController {
   }
 
   @ApiTags('API')
+  @ApiResponse({status: 200, type: GetUserAssetsResponce})
+  @UseGuards(JwtAuthGuard)
+  @Get('get-elements')
+  getUserAssets(@Req() request): Promise<WatchList[]> {
+    const user = request.user;
+    return this.watchlistService.getUserAssets(user.id)
+  } 
+
+  @ApiTags('API')
   @ApiResponse({status: 200})
   @UseGuards(JwtAuthGuard)
   @Delete()
@@ -42,4 +53,5 @@ export class WatchlistController {
       throw new Error(error);
     }
   }
+
 }
