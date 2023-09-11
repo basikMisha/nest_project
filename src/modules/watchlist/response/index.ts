@@ -16,3 +16,28 @@ export class CreateAssetResponce {
     assetId: string
 }
 
+export class GetUserAssetsResponce {
+    @ApiProperty()
+    @IsNumber()
+    id: number
+
+    @ApiProperty()
+    @IsString()
+    name: string
+
+    @ApiProperty()
+    @IsString()
+    assetId: string
+
+    @ApiProperty()
+    @IsString()
+    createdAt: string
+
+    @ApiProperty()
+    @IsString()
+    updatedAt: string
+
+    @ApiProperty()
+    @IsNumber()
+    user: number
+}
