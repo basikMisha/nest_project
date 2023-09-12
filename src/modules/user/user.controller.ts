@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */  
-import { Controller, Body, Patch, UseGuards, Req, Delete } from '@nestjs/common';
+import { Controller, Body, Patch, UseGuards, Req, Delete} from '@nestjs/common';
 import { UserService } from './user.service';
 import { UpdateUserDTO } from './dto';
 import { JwtAuthGuard } from 'src/guards/jwt-guard';
