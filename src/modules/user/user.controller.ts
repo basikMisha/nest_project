@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */  
 import { Controller, Body, Patch, UseGuards, Req, Delete} from '@nestjs/common';
 import { UserService } from './user.service';
-import { UpdateUserDTO } from './dto';
+import { UpdatePasswordDTO, UpdateUserDTO } from './dto';
 import { JwtAuthGuard } from 'src/guards/jwt-guard';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 // import { CreateUserDTO } from './dto';
@@ -25,6 +25,18 @@ export class UserController {
   ): Promise<UpdateUserDTO> {
     const user = request.user;
     return this.userService.updateUser(user.id, updateDto);
+  }
+
+  @ApiTags('API')
+  @ApiResponse({ status: 200})
+  @UseGuards(JwtAuthGuard)
+  @Patch('change-password')
+  updatePassword(
+    @Body() updatePasswordDto: UpdatePasswordDTO,
+    @Req() request,
+  ): Promise<any> {
+    const user = request.user;
+    return this.userService.updateUserPassword(user.id, updatePasswordDto);
   }
 
   @ApiTags('API')

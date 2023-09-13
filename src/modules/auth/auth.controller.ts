@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Post, UseGuards, Get, Req } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards, Get, Req, BadRequestException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDTO } from '../user/dto';
 import { LoginUserDTO } from './dto';
@@ -25,7 +25,7 @@ export class AuthController {
   @ApiTags('API')
   @ApiResponse({ status: 200, type: AuthUserResponse })
   @Post('login')
-  login(@Body() dto: LoginUserDTO): Promise<AuthUserResponse> {
+  login(@Body() dto: LoginUserDTO): Promise<AuthUserResponse | BadRequestException> {
     return this.authService.loginUser(dto);
   }
 
